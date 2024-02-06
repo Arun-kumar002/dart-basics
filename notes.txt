@@ -1,0 +1,133 @@
+installation: https://docs.flutter.dev/get-started/install
+    1.  sudo snap install flutter --classic
+    2.  flutter sdk-path
+    path: /home/arunkumar/snap/flutter/common/flutter
+
+     flutter doctor
+        This command checks your environment and displays a report in the terminal window. Flutter bundles the Dart SDK. You don’t need to install Dart.
+    flutter doctor -v
+        to check version
+
+crate project:
+    cmd pallet in vs code . > flutter create new project
+    flutter run 
+
+flutter:
+    flutter ui development kit create by google (ui-framework)
+    flutter using dart language
+    we can able build android,ios and desktop app .it will compile the code into native language so it's speed.
+    single code base for native apps (like: android,ios,windows etc.. even web dev = ex: gmail developed by dart)
+    initial alpha release 2017
+    stable release 2019
+    flutter developed by c,c++,dart
+    collection of widgets (nothing but classes)
+dart:
+    it will convert the code into 32-bit or 64-bit arm code for android or ios
+flutter-sdk:
+    set of tools to build & test the apps
+flutter-widgets:
+    flutter is a collection of widgets
+    widgets is nothing but components
+    ex: button,tabs,listView,gridView etc..
+hot-reload: 
+    when ever i save it will automatically render the changes in the ui
+
+keyword:    
+    https://dart.dev/language/keywords
+
+variable:
+    https://dart.dev/language/built-in-types
+stateless-widgets:
+    stateless widgets that don’t changes .
+    its appearances and properties remain unchanged throughout the life period
+    to create a stateless widgets we have to override build method.
+    ex: text,icon
+    uses: where ever the state wont change dynamic there we need to use stateless widgets
+    syntax: 
+    class MyWidget extends StatelessWidget {
+        const MyWidget({super.key});
+
+        @override
+        Widget build(BuildContext context) {
+          return const Placeholder();
+        }
+    }
+
+stateful widgets:
+    stateful widgets we can able to change in runtime dynamically.
+    ex: 
+
+class _MyWidgetState extends State<MyWidget> {
+  String value = 'text';
+  void handleClick() {
+    setState(() {
+      value = "Arun kumar";
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Column(
+        children: [
+          Text("$value"),
+          FloatingActionButton(
+            onPressed: () {
+              print('im clicked');
+              handleClick();
+            },
+            child: Icon(Icons.add),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+safeArea:
+    safe area to render the widget in after notification bar same as react native safeAreaView .
+    ex:
+        class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: SafeArea(child: Text("Arun")),
+    );
+  }
+}
+
+
+MaterialApp:
+  home: specify home property when we load the app
+scaffold:
+  this widget allows as to do basic layout of our app
+  it a wrapper for tje widgets
+  ex: void main() {
+  runApp(MaterialApp(
+      home: Scaffold(
+    appBar: AppBar(
+      title: const Text("Home"),
+      centerTitle: true,
+    ),
+    body: const Center(child: Text("Arun Kumar.")),
+    floatingActionButton: FloatingActionButton(
+      child: Text("Click"),
+      onPressed: () => print("im clicked"),
+    ),
+  )));
+  }
+
+  //basic app layout.
+  // Scaffold appBar: top portion widget 
+  //body is remaining portion of widget
+  //floating action button i give some button to click
+
+  image widget:
+  Image(image: AssetImage("assets/dog.webp"))
+  Image(image: NetworkImage(https://cdn.pixabay.com/photo/2024/01/15/19/40/animal-8510775_1280.jpg"))
+
+  or 
+  Image.asset("assets/dog.webp")
+  Image.network("")
